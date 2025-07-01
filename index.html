@@ -3,351 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Now - Nina Brenes</title>
+    <title>now - nina brenes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        :root {
-            /* Refined color palette */
-            --sage: #6a8280;
-            --dusty-pink: #efc5b9;
-            --soft-beige: #f5efeb;
-            --cream: #f2ded7;
-            --lavender: #d4c9d2;
-            --mint: #b4d1cf;
-            --terracotta: #a26360;
-            --soft-gray: #e0e7e7;
-            --highlight: #c8d9e6;
-            --deep-blue: #2f4156;
-            
-            /* Semantic colors */
-            --text-primary: var(--deep-blue);
-            --text-secondary: var(--sage);
-            --text-muted: var(--terracotta);
-            --bg-primary: var(--soft-beige);
-            --bg-hero: var(--cream);
-            --bg-section: var(--soft-gray);
-            --bg-card: var(--mint);
-            --accent: var(--dusty-pink);
-            --accent-secondary: var(--highlight);
-            
-            /* Shadows */
-            --shadow-card: 0 2px 20px rgba(47, 65, 86, 0.06);
-            --shadow-hover: 0 8px 32px rgba(47, 65, 86, 0.12);
-            --shadow-hero: 0 4px 24px rgba(47, 65, 86, 0.08);
-            
-            /* Typography */
-            --font-serif: 'Playfair Display', 'Crimson Text', Georgia, serif;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            
-            /* Spacing */
-            --section-gap: clamp(3rem, 8vw, 6rem);
-            --content-gap: clamp(1.5rem, 4vw, 2.5rem);
-        }
-
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            /* Color palette */
+            --accent: #efc5b9;
+            --deep-text: #6a8280;
+            --soft-bg: #d4c9d2;
+            --card-bg: #b4d1cf;
+            --contrast: #a26360;
+            --light-bg: #e0e7e7;
+            --hero-bg: #f2ded7;
+            --dark-text: #2f4156;
+            --highlight: #c8d9e6;
+            --main-bg: #f5efeb;
+            
+            /* Semantic colors */
+            --text-primary: #2f4156;
+            --text-secondary: #6a8280;
+            --text-muted: #a26360;
+            --bg-primary: #f5efeb;
+            --bg-hero: #f2ded7;
+            --bg-soft: #e0e7e7;
+            --bg-card: #b4d1cf;
+            --bg-section: #d4c9d2;
+            --accent-primary: #efc5b9;
+            --accent-secondary: #c8d9e6;
+            --border-subtle: rgba(86, 124, 141, 0.15);
+            
+            /* Shadows */
+            --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-elevated: 0 8px 30px rgba(0, 0, 0, 0.12);
+            
+            /* Typography */
+            --font-serif: 'Crimson Text', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
         body {
             font-family: var(--font-sans);
-            font-size: clamp(16px, 1.1vw, 18px);
-            line-height: 1.6;
+            font-size: 16px;
+            line-height: 1.7;
             color: var(--text-primary);
             background: var(--bg-primary);
+            background-image: radial-gradient(circle at 1px 1px, rgba(106, 130, 128, 0.03) 1px, transparent 0);
+            background-size: 20px 20px;
             overflow-x: hidden;
         }
 
-        /* Typography System */
+        /* Typography */
         h1, h2, h3, h4 {
             font-family: var(--font-serif);
             font-weight: 400;
-            line-height: 1.15;
+            line-height: 1.2;
             color: var(--text-primary);
-            letter-spacing: -0.025em;
+            letter-spacing: -0.02em;
         }
 
-        h1 { 
-            font-size: clamp(3rem, 7vw, 5rem); 
-            font-weight: 300;
-            letter-spacing: -0.04em;
-        }
-        h2 { 
-            font-size: clamp(2rem, 5vw, 3rem); 
-            font-weight: 300;
-            letter-spacing: -0.03em;
-        }
-        h3 { 
-            font-size: clamp(1.3rem, 3vw, 1.8rem); 
-            font-weight: 400;
-        }
-        h4 { 
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem); 
-            font-weight: 400;
-        }
+        h1 { font-size: 4.5rem; }
+        h2 { font-size: 2.8rem; margin-bottom: 1.5rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.3rem; }
 
         p {
+            font-size: 1.05rem;
+            line-height: 1.7;
             color: var(--text-secondary);
-            max-width: 65ch;
         }
 
         a {
-            color: var(--sage);
-            text-decoration: underline;
-            text-decoration-color: var(--accent);
-            text-underline-offset: 3px;
+            color: var(--deep-text);
+            text-decoration-color: var(--accent-primary);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
             transition: all 0.3s ease;
         }
 
         a:hover {
             color: var(--text-primary);
-            text-decoration-color: var(--sage);
+            text-decoration-color: var(--deep-text);
         }
-
-        /* Reading Progress Bar */
-        .reading-progress {
+        
+        /* Reading progress */
+        .reading-progress-bar {
             position: fixed;
             top: 0;
             left: 0;
             width: 0%;
             height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
             z-index: 1000;
             transition: width 0.3s ease;
         }
 
-        /* Container System */
+        /* Container */
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 0 clamp(1rem, 4vw, 2rem);
-        }
-
-        .wide-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 clamp(1rem, 4vw, 2rem);
+            padding: 0 2rem;
         }
 
         /* Header */
-        .site-header {
-            padding: var(--section-gap) 0;
+        .main-header {
             text-align: center;
-            background: linear-gradient(135deg, var(--bg-hero), var(--accent));
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 5rem;
+            padding: 2rem 0;
         }
 
-        .site-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="%23ffffff" opacity="0.08"/><circle cx="40" cy="80" r="1" fill="%23ffffff" opacity="0.06"/></svg>');
-            pointer-events: none;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .location-time {
+        .location-badge, .last-updated {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            background: var(--bg-soft);
             padding: 0.75rem 1.5rem;
-            border-radius: 2rem;
+            border-radius: 25px;
             font-size: 0.9rem;
             color: var(--text-muted);
             margin-bottom: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--shadow-soft);
         }
 
         .page-title {
-            font-weight: 300;
+            font-size: 5.5rem;
+            font-weight: 200;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-primary), var(--sage));
+            background: linear-gradient(135deg, var(--text-primary), var(--deep-text));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
         }
 
-        .page-subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+        .subtitle {
+            font-size: 1.3rem;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 300;
+            margin-bottom: 2.5rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
+            font-weight: 300;
         }
 
-        .last-updated {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 0.75rem 1.5rem;
-            border-radius: 2rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Story Flow Section */
-        .story-intro {
-            padding: var(--section-gap) 0;
-            text-align: center;
-        }
-
-        .story-intro h2 {
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .story-intro p {
-            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
-            color: var(--text-secondary);
-            margin: 0 auto 2rem auto;
-            max-width: 70ch;
-            line-height: 1.7;
-        }
-
-        /* Quick Status Grid */
-        .status-overview {
+        /* Status Grid */
+        .status-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
-            margin: var(--content-gap) 0;
+            margin-bottom: 5rem;
         }
 
         .status-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
             background: var(--bg-card);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            box-shadow: var(--shadow-card);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease-in-out;
             text-decoration: none;
-            color: var(--text-primary);
+            color: inherit;
         }
 
         .status-card:hover {
             transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow-elevated);
         }
 
         .status-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--accent);
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem auto;
+            flex-shrink: 0;
             color: var(--text-primary);
         }
 
-        .status-metric {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            font-family: var(--font-serif);
-            margin-bottom: 0.5rem;
-            display: block;
+        .status-icon.mood { background: var(--accent-primary); }
+        .status-icon.energy { background: var(--accent-secondary); }
+        .status-icon.focus { background: var(--deep-text); color: white; }
+        .status-icon.music { background: var(--contrast); color: white; }
+
+        .status-content {
+            display: flex;
+            flex-direction: column;
         }
 
         .status-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            text-transform: lowercase;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
         }
 
-        /* Content Sections */
+        .status-value {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Sections */
         .content-section {
-            padding: var(--section-gap) 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--content-gap);
+            margin-bottom: 5rem;
         }
 
         .section-title {
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+            font-weight: 300;
             position: relative;
+            padding-bottom: 1rem;
         }
 
         .section-title::after {
             content: '';
-            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 60px;
             height: 2px;
-            background: var(--accent);
-            margin: 1rem auto 0 auto;
+            background: var(--accent-primary);
         }
-
+        
         .section-description {
-            color: var(--text-secondary);
-            margin: 0 auto;
-            max-width: 60ch;
+            font-size: 1.2rem;
+            max-width: 65ch;
+            margin-bottom: 3rem;
         }
 
-        /* Learning Journey Cards */
+        /* Learning Process Grid */
         .learning-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
         }
 
         .learning-card {
             background: var(--bg-card);
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-card);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease-in-out;
+            box-shadow: var(--shadow-soft);
             position: relative;
-            overflow: hidden;
-        }
-
-        .learning-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
         }
 
         .learning-card.priority {
-            background: linear-gradient(135deg, var(--bg-card), var(--accent));
-            border-color: var(--accent);
+            background: linear-gradient(135deg, var(--bg-card), var(--accent-primary));
+            border-color: var(--accent-primary);
         }
-
+        
         .learning-card:hover {
             transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow-elevated);
         }
 
         .learning-icon {
             width: 50px;
             height: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -356,54 +289,78 @@
         }
 
         .learning-card h3 {
+            font-size: 1.3rem;
             margin-bottom: 1rem;
             color: var(--text-primary);
+            font-weight: 500;
         }
 
         .learning-card p {
             color: var(--text-secondary);
             line-height: 1.6;
         }
+        
+        .learning-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
 
-        /* Reading Section */
-        .reading-grid {
+        .tag-pill {
+            background: var(--bg-soft);
+            color: var(--text-secondary);
+            padding: 0.75rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .tag-pill:hover {
+            background: var(--accent-primary);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Books Grid */
+        .books-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
 
         .book-card {
-            background: var(--bg-card);
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            box-shadow: var(--shadow-card);
-            transition: all 0.4s ease;
-            text-decoration: none;
-            color: inherit;
-            border: 1px solid rgba(255, 255, 255, 0.3);
             display: flex;
             gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease-in-out;
+            box-shadow: var(--shadow-soft);
         }
 
         .book-card:hover {
             transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-            text-decoration: none;
-            color: inherit;
+            box-shadow: var(--shadow-elevated);
         }
 
         .book-cover {
             width: 60px;
             height: 90px;
-            border-radius: 0.5rem;
             background-size: cover;
             background-position: center;
+            border-radius: 8px;
             flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-soft);
         }
 
         .digital-cover {
-            background: var(--accent);
+            background: var(--accent-primary);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -417,21 +374,21 @@
             justify-content: space-between;
         }
 
-        .book-title {
-            font-size: 1rem;
+        .book-info h4 {
+            font-size: 1.1rem;
             margin-bottom: 0.25rem;
             color: var(--text-primary);
-            font-weight: 500;
+            line-height: 1.3;
         }
 
         .book-author {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
-            font-style: italic;
             margin-bottom: 1rem;
+            font-style: italic;
         }
 
-        .reading-progress-container { /* Renamed to avoid conflict */
+        .reading-progress {
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -440,16 +397,16 @@
         .progress-bar {
             flex: 1;
             height: 4px;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.5);
             border-radius: 2px;
             overflow: hidden;
         }
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--sage), var(--accent-secondary));
+            background: linear-gradient(90deg, var(--deep-text), var(--accent-secondary));
             border-radius: 2px;
-            transition: width 0.6s ease;
+            transition: width 0.6s ease-in-out;
         }
 
         .progress-text {
@@ -459,340 +416,53 @@
             min-width: 35px;
         }
 
-        /* Learning Tags */
-        .learning-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .tag {
-            background: var(--bg-section);
-            color: var(--text-secondary);
-            padding: 0.5rem 1rem;
-            border-radius: 1.5rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .tag:hover {
-            background: var(--accent);
-            color: var(--text-primary);
-            transform: translateY(-2px);
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-card);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-        }
-
-        .project-card.featured {
-            background: linear-gradient(135deg, var(--bg-card), var(--accent));
-            border-color: var(--accent);
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .project-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-primary);
-            flex-shrink: 0;
-        }
-
-        .project-meta {
-            flex: 1;
-        }
-
-        .project-title {
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .project-status {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 1rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: lowercase;
-            color: var(--text-primary);
-        }
-
-        .project-description {
-            margin-bottom: 2rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .project-progress {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .project-progress .progress-bar {
-            flex: 1;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 3px;
-        }
-
-        .project-progress .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--sage), var(--accent-secondary));
-        }
-
-        .project-progress .progress-text {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-
-        /* Connect Section */
-        .connect-section {
-            background: linear-gradient(135deg, var(--lavender), var(--soft-gray));
-            border-radius: 2rem;
-            padding: var(--section-gap);
-            text-align: center;
-            margin: var(--section-gap) 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: var(--shadow-hero);
-        }
-
-        .connect-title {
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .connect-description {
-            margin: 0 auto 2.5rem auto;
-            color: var(--text-secondary);
-            max-width: 50ch;
-        }
-
-        .connect-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .connect-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.25rem 1.75rem;
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 1.25rem;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.4s ease;
-        }
-
-        .connect-link:hover {
-            background: rgba(255, 255, 255, 0.5);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-card);
-            text-decoration: none;
-            color: var(--text-primary);
-        }
-
-        .link-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-primary);
-        }
-
-        .link-arrow {
-            transition: transform 0.3s ease;
-            color: var(--text-muted);
-        }
-
-        .connect-link:hover .link-arrow {
-            transform: translateX(4px);
-        }
-
-        /* Mobile Optimizations */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .status-overview {
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-                max-width: 100%;
-            }
-            
-            .status-card {
-                padding: 1.5rem 1rem;
-            }
-            
-            .status-metric {
-                font-size: clamp(1.4rem, 4vw, 1.8rem);
-            }
-            
-            .learning-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .reading-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .book-card {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .book-cover {
-                width: 80px;
-                height: 120px;
-                margin: 0 auto 1rem auto;
-            }
-            
-            .project-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .connect-links {
-                grid-template-columns: 1fr;
-            }
-            
-            .learning-tags {
-                justify-content: center;
-            }
+            .container { padding: 0 1rem; }
+            .status-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .learning-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .page-title { font-size: 3.5rem; }
+            .section-title { font-size: 2.2rem; }
         }
 
         @media (max-width: 480px) {
-            .status-overview {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .learning-card,
-            .project-card {
-                padding: 1.5rem;
-            }
-            
-            .status-card {
-                padding: 1.5rem;
-            }
-            
-            .connect-section {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Focus styles for accessibility */
-        a:focus,
-        .tag:focus,
-        .connect-link:focus {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
+            .page-title { font-size: 2.8rem; letter-spacing: -0.02em; }
+            .section-title { font-size: 1.8rem; }
+            h2 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-    <div class="reading-progress"></div>
-
-    <header class="site-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="location-time">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                        <circle cx="12" cy="10" r="3"/>
-                    </svg>
-                    Costa Rica • 24°C
-                </div>
-                
-                <h1 class="page-title">now</h1>
-                
-                <p class="page-subtitle">
-                    inspired by <a href="https://sivers.org/nowff" target="_blank">derek sivers' idea</a>, this is a living snapshot of what i am up to right now.
-                </p>
-                
-                <div class="last-updated">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"/>
-                        <polyline points="12,6 12,12 16,14"/>
-                    </svg>
-                    last updated: July 2025
-                </div>
+    <div class="reading-progress-bar"></div>
+    
+    <div class="container">
+        <header class="main-header">
+            <div class="location-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Costa Rica • 24°C
             </div>
-        </div>
-    </header>
-
-    <section class="story-intro">
-        <div class="container">
-            <h2>learning vibe coding</h2>
-            <p>
-                i'm discovering intuitive development with cursor + claude code for product building, while learning webflow with claude's help for website creation. exploring different tools for different purposes, following curiosity over rigid frameworks.
+            
+            <h1 class="page-title">now</h1>
+            
+            <p class="subtitle">
+                Inspired by <a href="https://sivers.org/nowff" target="_blank">Derek Sivers' idea</a>, this is a living snapshot of what I am up to right now.
             </p>
-        </div>
-    </section>
 
-    <section class="container">
-        <div class="status-overview">
+            <div class="last-updated">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12,6 12,12 16,14"/>
+                </svg>
+                Last updated: July 2025
+            </div>
+        </header>
+
+        <div class="status-grid">
             <div class="status-card">
-                <div class="status-icon">
+                <div class="status-icon mood">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10"/>
                         <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
@@ -800,53 +470,55 @@
                         <line x1="15" y1="9" x2="15.01" y2="9"/>
                     </svg>
                 </div>
-                <span class="status-metric">flow</span>
-                <span class="status-label">current mood</span>
+                <div class="status-content">
+                    <span class="status-label">Mood</span>
+                    <span class="status-value">Flow State</span>
+                </div>
             </div>
             
             <div class="status-card">
-                <div class="status-icon">
+                <div class="status-icon energy">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/>
+                    </svg>
+                </div>
+                <div class="status-content">
+                    <span class="status-label">Energy</span>
+                    <span class="status-value">High</span>
+                </div>
+            </div>
+            
+            <div class="status-card">
+                <div class="status-icon focus">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                         <circle cx="12" cy="7" r="4"/>
                     </svg>
                 </div>
-                <span class="status-metric">180</span>
-                <span class="status-label">days in hermit mode</span>
-            </div>
-            
-            <div class="status-card">
-                <div class="status-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/>
-                    </svg>
+                <div class="status-content">
+                    <span class="status-label">Focus</span>
+                    <span class="status-value">Hermit Mode</span>
                 </div>
-                <span class="status-metric">high</span>
-                <span class="status-label">energy level</span>
             </div>
             
             <a href="https://www.youtube.com/watch?v=kGOiV5_2M5E" target="_blank" class="status-card">
-                <div class="status-icon">
+                <div class="status-icon music">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M9 18V5l12-2v13"/>
                         <circle cx="6" cy="18" r="3"/>
                         <circle cx="18" cy="16" r="3"/>
                     </svg>
                 </div>
-                <span class="status-metric">a way of life</span>
-                <span class="status-label">soundtrack</span>
+                <div class="status-content">
+                    <span class="status-label">Soundtrack</span>
+                    <span class="status-value">A Way of Life</span>
+                </div>
             </a>
         </div>
-    </section>
 
-    <section class="content-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">my learning process</h2>
-                <p class="section-description">
-                    My current focus is on the process itself. I'm exploring how to use intuition and AI as collaborative partners to get into a state of flow—whether I'm working with words or code.
-                </p>
-            </div>
+        <section class="content-section">
+            <h2 class="section-title">My Learning Process</h2>
+            <p class="section-description">My current focus is on the process itself. I'm exploring how to use intuition and AI as collaborative partners to get into a state of flow—whether I'm working with words or code.</p>
             
             <div class="learning-grid">
                 <div class="learning-card priority">
@@ -858,9 +530,7 @@
                         </svg>
                     </div>
                     <h3>Vibe Writing & Vibe Coding</h3>
-                    <p>
-                        I'm treating writing and coding as two sides of the same coin. My method is to first get ideas down in a flow state. Then, I collaborate with Claude as an editor and sounding board to refine the structure and details. I'm the final editor, but this partnership is key to my creative process.
-                    </p>
+                    <p>I'm treating writing and coding as two sides of the same coin. My method is to first get ideas down in a flow state. Then, I collaborate with Claude as an editor and sounding board to refine the structure and details. I'm the final editor, but this partnership is key to my creative process.</p>
                 </div>
                 
                 <div class="learning-card">
@@ -870,41 +540,31 @@
                         </svg>
                     </div>
                     <h3>Structured Creation: Webflow</h3>
-                    <p>
-                        As a counterpoint to my more intuitive "vibe" based work, I'm learning the structured environment of Webflow. It's an experiment in understanding how different tools and constraints can shape the final outcome.
-                    </p>
+                    <p>As a counterpoint to my more intuitive "vibe" based work, I'm learning the structured environment of Webflow. It's an experiment in understanding how different tools and constraints can shape the final outcome.</p>
                 </div>
             </div>
             
             <div class="learning-tags">
-                <span class="tag">vibe writing</span>
-                <span class="tag">vibe coding</span>
-                <span class="tag">claude as editor</span>
-                <span class="tag">cursor + claude</span>
-                <span class="tag">generative ai</span>
-                <span class="tag">writing to think</span>
-                <span class="tag">systems thinking</span>
-                <span class="tag">webflow</span>
+                <div class="tag-pill">vibe writing</div>
+                <div class="tag-pill">vibe coding</div>
+                <div class="tag-pill">claude as editor</div>
+                <div class="tag-pill">cursor + claude</div>
+                <div class="tag-pill">generative ai</div>
+                <div class="tag-pill">systems thinking</div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="content-section" style="background: var(--bg-section);">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">currently reading</h2>
-                <p class="section-description">
-                    books that are shaping my understanding of integrity, intuition, optimization, and the way of code.
-                </p>
-            </div>
+        <section class="content-section">
+            <h2 class="section-title">Currently Reading</h2>
+            <p class="section-description">A selection of books shaping my understanding of integrity, intuition, and creation.</p>
             
-            <div class="reading-grid">
+            <div class="books-grid">
                 <a href="https://amzn.to/46ghvEZ" target="_blank" class="book-card">
                     <div class="book-cover" style="background-image: url('https://th.bing.com/th/id/R.f4cd6abcd222cc3248358ad00e92f883?rik=RnbX3hyFlga2vw&pid=ImgRaw&r=0');"></div>
                     <div class="book-info">
-                        <h4 class="book-title">the way of integrity</h4>
-                        <div class="book-author">by martha beck</div>
-                        <div class="reading-progress-container">
+                        <h4>The Way of Integrity</h4>
+                        <div class="book-author">by Martha Beck</div>
+                        <div class="reading-progress">
                             <div class="progress-bar">
                                 <div class="progress-fill" style="width: 65%;"></div>
                             </div>
@@ -916,9 +576,9 @@
                 <a href="https://amzn.to/4lqupoj" target="_blank" class="book-card">
                     <div class="book-cover" style="background-image: url('https://th.bing.com/th/id/OIP.E3vWphjKbSK6kfNHQ9aMlwHaLc?r=0&rs=1&pid=ImgDetMain');"></div>
                     <div class="book-info">
-                        <h4 class="book-title">living in the light</h4>
-                        <div class="book-author">by shakti gawain</div>
-                        <div class="reading-progress-container">
+                        <h4>Living in the Light</h4>
+                        <div class="book-author">by Shakti Gawain</div>
+                        <div class="reading-progress">
                             <div class="progress-bar">
                                 <div class="progress-fill" style="width: 30%;"></div>
                             </div>
@@ -930,9 +590,9 @@
                 <a href="https://amzn.to/40lsusT" target="_blank" class="book-card">
                     <div class="book-cover" style="background-image: url('https://th.bing.com/th/id/R.600c59f30deeed95fe9371dabeccb942?rik=0D5S4XLOxsbjiQ&pid=ImgRaw&r=0');"></div>
                     <div class="book-info">
-                        <h4 class="book-title">tools of titans</h4>
-                        <div class="book-author">by tim ferriss</div>
-                        <div class="reading-progress-container">
+                        <h4>Tools of Titans</h4>
+                        <div class="book-author">by Tim Ferriss</div>
+                        <div class="reading-progress">
                             <div class="progress-bar">
                                 <div class="progress-fill" style="width: 45%;"></div>
                             </div>
@@ -943,15 +603,15 @@
                 
                 <a href="https://www.thewayofcode.com/" target="_blank" class="book-card">
                     <div class="book-cover digital-cover">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
                             <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                         </svg>
                     </div>
                     <div class="book-info">
-                        <h4 class="book-title">the way of code</h4>
-                        <div class="book-author">online book</div>
-                        <div class="reading-progress-container">
+                        <h4>The Way of Code</h4>
+                        <div class="book-author">Online Book</div>
+                        <div class="reading-progress">
                             <div class="progress-bar">
                                 <div class="progress-fill" style="width: 20%;"></div>
                             </div>
@@ -960,128 +620,9 @@
                     </div>
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="content-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">currently building</h2>
-                <p class="section-description">
-                    projects that are emerging through different approaches - some through structure, others through intuition.
-                </p>
-            </div>
-            
-            <div class="projects-grid">
-                <div class="project-card featured">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/>
-                            </svg>
-                        </div>
-                        <div class="project-meta">
-                            <h3 class="project-title">webflow website rebuild</h3>
-                            <span class="project-status">learning</span>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        learning webflow with claude's guidance to build a proper website. structured approach for web design.
-                    </p>
-                    <div class="project-progress">
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 45%;"></div>
-                        </div>
-                        <span class="progress-text">45%</span>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                <path d="M2 17l10 5 10-5"/>
-                                <path d="M2 12l10 5 10-5"/>
-                            </svg>
-                        </div>
-                        <div class="project-meta">
-                            <h3 class="project-title">vibe coding experiments</h3>
-                            <span class="project-status">exploring</span>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        using cursor + claude code to build products through intuitive development. letting ideas flow into code.
-                    </p>
-                    <div class="project-progress">
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 30%;"></div>
-                        </div>
-                        <span class="progress-text">30%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container">
-        <div class="connect-section">
-            <h2 class="connect-title">want to connect?</h2>
-            <p class="connect-description">
-                i'm always open to meaningful conversations about vibe coding, writing, or just sharing what we're learning.
-            </p>
-            
-            <div class="connect-links">
-                <a href="https://buymeacoffee.com/ninabrenes" target="_blank" class="connect-link">
-                    <div class="link-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <span>buy me flowers</span>
-                    <div class="link-arrow">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"/>
-                            <polyline points="7,7 17,7 17,17"/>
-                        </svg>
-                    </div>
-                </a>
-                
-                <a href="https://www.linkedin.com/in/ninabrenes/" target="_blank" class="connect-link">
-                    <div class="link-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                            <rect x="2" y="9" width="4" height="12"/>
-                            <circle cx="4" cy="4" r="2"/>
-                        </svg>
-                    </div>
-                    <span>follow on linkedin</span>
-                    <div class="link-arrow">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"/>
-                            <polyline points="7,7 17,7 17,17"/>
-                        </svg>
-                    </div>
-                </a>
-                
-                <a href="mailto:ninaouthere@gmail.com" class="connect-link">
-                    <div class="link-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                    </div>
-                    <span>follow the journey</span>
-                    <div class="link-arrow">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"/>
-                            <polyline points="7,7 17,7 17,17"/>
-                        </svg>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <script>
         // Reading progress bar
@@ -1089,38 +630,25 @@
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
-            document.querySelector('.reading-progress').style.width = scrolled + '%';
+            document.querySelector('.reading-progress-bar').style.width = scrolled + '%';
         });
 
         // Animate progress bars on scroll
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '0px 0px -20px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const progressFills = entry.target.querySelectorAll('.progress-fill');
-                    progressFills.forEach(fill => {
-                        const width = fill.style.width;
-                        // Reset and then apply the width to re-trigger the transition
-                        fill.style.width = '0%';
-                        setTimeout(() => {
-                            fill.style.width = width;
-                        }, 100); // A small delay ensures the transition runs
-                    });
-                     // Unobserve after animation to prevent re-triggering
+                    const progressFill = entry.target.querySelector('.progress-fill');
+                    if (progressFill) {
+                        progressFill.style.width = progressFill.style.width; // Re-apply to trigger animation
+                    }
                     observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.5 });
 
-        // Observe all cards with progress bars
-        document.querySelectorAll('.book-card, .project-card').forEach(card => {
+        document.querySelectorAll('.book-card').forEach(card => {
             observer.observe(card);
         });
-
     </script>
 </body>
 </html>
